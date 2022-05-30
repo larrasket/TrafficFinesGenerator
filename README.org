@@ -1,0 +1,16 @@
+#+title: Traffic Fines Generator
+Workflow to automate traffic receipt generation, with a web demo.
+
+- *Objective*: Generating receipts starting from n1 to n2, and export them as pages inside pdf document.
+- *Example*:
+   [[file:d7eba674-bfd3-4eaa-bbd5-50ca3f49ea44.jpg]]
+- *Output Sample:* [[file:WebDemo/wwwroot/out.pdf]]
+- *Demo*:
+
+  [[file:dd.gif]]
+- *Online Web Demo*:[[http://projectegy-003-site18.gtempurl.com/][Ref.]] Might break in case of big numbers, also there is no any kind of validation.
+- *Used Packges*:
+  - [[https://github.com/empira/PDFsharp][empira/PDFsharp: A .NET library for processing PDF]]
+  - [[https://github.com/salehmu/EasternArabicNumeralsConvertor][salehmu/EasternArabicNumeralsConvertor: .NET Package to easily convert Arabic numerals to Arabic-Hindu numerals.]]
+  - [[https://www.nuget.org/packages/System.Drawing.Common/][System.Drawing.Common 6.0.0]] *(Windows ONLY Package)*
+  - [[https://www.nuget.org/packages/System.Security.Permissions/][System.Security.Permissions 6.0.0]]

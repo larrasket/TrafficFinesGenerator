@@ -2,13 +2,12 @@
 Workflow to automate traffic receipt generation, with a web demo.
 
 - *Objective*: Generating receipts starting from n1 to n2, and export them as pages inside pdf document.
-- *Example*:
-   [[file:d7eba674-bfd3-4eaa-bbd5-50ca3f49ea44.jpg]]
-- *Output Sample:* [[file:WebDemo/wwwroot/out.pdf]]
+- *Example*: [[file:dd.gif][Here]].
+- *Output Sample:* [[file:WebDemo/wwwroot/out.pdf][Here.]]
 - *Demo*:
 
   [[file:dd.gif]]
-- *Online Web Demo*:[[http://projectegy-003-site18.gtempurl.com/][Ref.]] Might break in case of big numbers, also there is no any kind of validation.
+- *Online Web Demo*: [[http://projectegy-003-site18.gtempurl.com/][Ref.]] Might break in case of big numbers, also there is no any kind of validation.
 - *Used Packges*:
   - [[https://github.com/empira/PDFsharp][empira/PDFsharp: A .NET library for processing PDF]]
   - [[https://github.com/salehmu/EasternArabicNumeralsConvertor][salehmu/EasternArabicNumeralsConvertor: .NET Package to easily convert Arabic numerals to Arabic-Hindu numerals.]]

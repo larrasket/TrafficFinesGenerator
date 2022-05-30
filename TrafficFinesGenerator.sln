@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DummyConsole", "DummyConsole\DummyConsole.csproj", "{91394801-27BB-44A8-9314-C8A97C872549}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eastern Arabic numerals Convertor", "..\Eastern Arabic numerals Convertor\Eastern Arabic numerals Convertor.csproj", "{A204560C-BD09-4D4C-B802-27E57D9E74BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Writer", "Writer\Writer.csproj", "{A7F70B56-D843-4857-B845-647C9B7016FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDemo", "WebDemo\WebDemo.csproj", "{2AC38BD9-B18C-4CBE-A87E-ACA81AA652AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91394801-27BB-44A8-9314-C8A97C872549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91394801-27BB-44A8-9314-C8A97C872549}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91394801-27BB-44A8-9314-C8A97C872549}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91394801-27BB-44A8-9314-C8A97C872549}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A204560C-BD09-4D4C-B802-27E57D9E74BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A204560C-BD09-4D4C-B802-27E57D9E74BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A204560C-BD09-4D4C-B802-27E57D9E74BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A204560C-BD09-4D4C-B802-27E57D9E74BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7F70B56-D843-4857-B845-647C9B7016FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7F70B56-D843-4857-B845-647C9B7016FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7F70B56-D843-4857-B845-647C9B7016FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7F70B56-D843-4857-B845-647C9B7016FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AC38BD9-B18C-4CBE-A87E-ACA81AA652AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AC38BD9-B18C-4CBE-A87E-ACA81AA652AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AC38BD9-B18C-4CBE-A87E-ACA81AA652AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AC38BD9-B18C-4CBE-A87E-ACA81AA652AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

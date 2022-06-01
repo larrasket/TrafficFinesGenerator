@@ -2,11 +2,11 @@
 using System.Drawing.Text;
 using Eastern_Arabic_numerals_Convertor;
 using PdfSharp.Pdf;
-using Writer;
 
+#pragma warning disable CA1416
 #pragma warning disable CS8618
 
-namespace WriterToTheFile;
+namespace Writer;
 
 public class WriterToFile
 {
@@ -16,19 +16,19 @@ public class WriterToFile
     private string pic_link;
     private List<string> Dirs { get; set; }
     private Font _amiri;
-    public string dir { get; set; }
+    private string Dir { get; set; }
 
     private void IntializeFont()
     {
         var collection = new PrivateFontCollection();
-        collection.AddFontFile(Path.Combine(dir, "bold.ttf"));
+        collection.AddFontFile(Path.Combine(Dir, "bold.ttf"));
         var fontFamily = new FontFamily("Amiri", collection);
         _amiri = new Font(fontFamily, 35);
     }
 
     public WriterToFile(string fileName, string workingdir)
     {
-        dir = workingdir;
+        Dir = workingdir;
         Dirs = new List<string>();
         Imgs = new List<Bitmap>();
         pic_link = fileName;
@@ -46,8 +46,8 @@ public class WriterToFile
 
     private void WriteIt(long value)
     {
-        var obj_loc = Path.Combine(dir, "obj.png");
-        var img_loc = Path.Combine(dir, "img2.png");
+        // var objLoc = Path.Combine(Dir, "obj.png");
+        // var img_loc = Path.Combine(Dir, "img2.png");
         TemplateImage = new Bitmap(pic_link);
         var t = ArabicIndic.ConvertToIndic(value);
         var firstLocation = new PointF(500, 50f);
@@ -59,19 +59,19 @@ public class WriterToFile
         Imgs.Add(TemplateImage);
     }
 
-    private void Write(int start)
+    private void Write(List<int> list, int j)
     {
-        var end = start + 2;
-        int pics = end - start;
-        for (int i = start; i <= end; i++)
+        var end = j + 2;
+        int pics = 2;
+        for (int i = j; i <= end && i < list.Count; i++)
         {
-            WriteIt(i);
+            WriteIt(list[i]);
         }
 
         var x = new Bitmap(TemplateImage.Width + 250, (TemplateImage.Height * (pics + 2)));
         using (Graphics g = Graphics.FromImage(x))
         {
-            g.DrawImage(Imgs[0], 0, 0);
+            if (Imgs.Count > 0) g.DrawImage(Imgs[0], 0, 0);
             var h = TemplateImage.Height + 40;
 
 
@@ -82,14 +82,33 @@ public class WriterToFile
             }
         }
 
-        var file = @"imgs\" + start + ".png";
+
+        var file = @"imgs\" + j + ".png";
+        if(Imgs.Count!= 0)
         x.Save(file);
+        Imgs = new List<Bitmap>();
         Dirs.Add(file);
     }
 
-    private List<string> _Write(int start, int end)
+
+    private List<int> CreateList(int start, int middle, int end, int counter)
     {
-        var imgdir = Path.Combine(dir, "imgs");
+        var l = new List<int>();
+        while (counter != 0)
+        {
+            l.Add(start++);
+            l.Add(middle++);
+            l.Add(end++);
+            counter--;
+        }
+
+        return l;
+    }
+
+
+    private List<string> _Write(int start, int middle, int end, int counter)
+    {
+        var imgdir = Path.Combine(Dir, "imgs");
         if (!Directory.Exists(imgdir))
             Directory.CreateDirectory(imgdir);
         else
@@ -103,34 +122,48 @@ public class WriterToFile
             }
         }
 
+        counter += counter % 3;
+        var l = CreateList(start, middle, end, counter);
+        int j = 0;
 
-        end += start % 3;
 
-        for (int i = start; i <= end; i += 3)
+        for (int i = 0; i < l.Count; )
         {
-            Write(i);
-            Imgs = new List<Bitmap>();
+            
+            Write(l, i);
+            i += 3;
         }
+        
+        
+        
+        // foreach ( var w in l)
+        // {
+        // }
+
+        // end += start % 3;
+        // for (int i = start; i <= end; i += 3)
+        // {
+        //     Write(i);
+        //     Imgs = new List<Bitmap>();
+        // }
+
 
         return Dirs;
     }
 
-    public void Write(int start, int end)
+    public void Write(int start, int middle, int end, int counter)
     {
-        var outter = Path.Combine(dir, "out.pdf");
+        var outter = Path.Combine(Dir, "out.pdf");
         if (File.Exists(outter))
             File.Delete(outter);
 
-        var temp = Path.Combine(dir, "file.pdf");
-        var k = _Write(start, end);
+        var temp = Path.Combine(Dir, "file.pdf");
+        var k = _Write(start, middle, end, counter);
         var x = new PdfDocument(temp);
         foreach (var i in k)
         {
             PdfHelper.Instance.SaveImageAsPdf(i, x, 1000);
         }
-
-
-        var save = Path.Combine(dir, "img2.png");
 
         TemplateImage.Dispose();
         x.Close();

@@ -6,18 +6,34 @@
 <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Index">
     <table>
         <tr>
-            <td> البداية </td>
+            <td> العد الابتدائي لأول ورقة في الصفحة </td>
             <td>
                 <input type="number" id="Start" name="Start"/>
             </td>
         </tr>
         <tr>
-            <td> النهاية </td>
+            <td> العد الابتدائي لثاني ورقة في الصفحة </td>
+            <td>
+                <input type="number" id="Middle" name="Middle"/>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td> العد الابتدائي لثالث ورقة في الصفحة </td>
             <td>
                 <input type="number" id="End" name="End"/>
             </td>
         </tr>
-
+        
+        
+        <tr>
+            <td> العداد </td>
+            <td>
+                <input type="number" id="Counter" name="Counter"/>
+            </td>
+        </tr>
+        
 
         <tr>
             <td> الصورة (في حالة عدم وجود صورة اتركه فارغًا وسيتم استخدام الصورة الافتراضية، في حالة رفع صورة تأكد أنها بأبعاد عرض 867 وطول 414 </td>
